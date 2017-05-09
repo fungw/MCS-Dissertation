@@ -1,0 +1,151 @@
+This is TeX, Version 3.14159 (Web2C 7.4.5) (format=latex 2004.7.20)  14 MAR 2005 14:56
+**thesis
+(./thesis.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/report.cls
+Document Class: report 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size12.clo
+File: size12.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./tcdthesis.sty
+****************************************************************
+** TCD Thesis Style File, version 2.0, March 2005 
+** Written by Dinesh Das 
+** Dept. of Computer Sciences 
+** The University of Texas at Austin 
+** Modified by Bert Kay, James A. Bednar, and Ayman El-Khashab 
+** Modified by Ross Brennan for use in Trinity College Dublin 
+****************************************************************
+\@tmplength=\skip43
+\hour=\count88
+\minute=\count89
+\dow=\count90
+\leap=\count91
+\x=\count92
+\y=\count93
+) (./thesis.aux (./chapter1.aux) (./chapter2.aux) (./appendix1.aux))
+\openout1 = `thesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+ [1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+
+ []
+
+[3]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 128.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 128.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 128.
+ [4
+
+] [5
+
+] (./thesis.toc)
+\tf@toc=\write3
+\openout3 = `thesis.toc'.
+
+ [6
+
+] (./thesis.lot)
+\tf@lot=\write4
+\openout4 = `thesis.lot'.
+
+ [7
+
+
+] (./thesis.lof)
+\tf@lof=\write5
+\openout5 = `thesis.lof'.
+
+ [8
+
+
+]
+\openout2 = `chapter1.aux'.
+
+
+(./chapter1.tex
+Chapter 1.
+) [1
+
+
+]
+\openout2 = `chapter2.aux'.
+
+ (./chapter2.tex
+Chapter 2.
+) [2
+
+
+
+]
+\openout2 = `appendix1.aux'.
+
+ (./appendix1.tex) [3
+
+
+
+]
+No file thesis.bbl.
+
+LaTeX Warning: Empty `thebibliography' environment on input line 159.
+
+[4
+
+
+] (./thesis.aux (./chapter1.aux) (./chapter2.aux) (./appendix1.aux)) ) 
+Here is how much of TeX's memory you used:
+ 404 strings out of 95847
+ 4889 string characters out of 1195948
+ 50406 words of memory out of 1000001
+ 3374 multiletter control sequences out of 10000+50000
+ 9156 words of font info for 32 fonts, out of 500000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 22i,6n,19p,188b,219s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on thesis.dvi (12 pages, 3648 bytes).

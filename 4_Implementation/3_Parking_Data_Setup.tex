@@ -1,0 +1,79 @@
+\section{Simulation Data}
+Various data is needed for the simulation to work. Most of the data is manually acquired through \ac{SUMO} GUI or translated and formatted from datasets acquired online. Section \ref{sec:design_data} details the data that have been acquired from external sources. In this section, a list is compiled of the formatted datasets that the simulation interacts with directly. An explanation of the data as well as their purpose within the simulation is also explained.
+
+\textbf{To note:} There are minor differences between \ac{SUMO} coordinates and \ac{OMNeT++} coordinates. More specifically, the origin for the \ac{SUMO} coordinate plane is in the top left corner, while the origin of \ac{OMNeT++} coordinates is on the bottom left corner. In the succeeding sections, there are references to both \ac{OMNeT++} and \ac{SUMO} coordinates. \ac{VEINS} supplies a function that allows for \ac{SUMO} to \ac{OMNeT++} coordinate conversions and it is used often during and before the simulation.
+
+\subsection{Parking Lot}
+\subsubsection{\underline{\ac{OMNeT++} Coordinates}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] \ac{OMNeT++} coordinates of each parking lot. The coordinates are initially obtained through the \ac{SUMO} GUI and converted to \ac{OMNeT++} coordinates with a coordinate conversion function supplied by \ac{VEINS}. This is done separately from the simulation process. The conversion took place pre-implementation and saved to a file for further use.
+  \item[Purpose] \ac{OMNeT++} coordinates of each parking lot is used to calculate the closest parking lot to a vehicles' final destination.
+\end{description}
+
+\subsubsection{\underline{\ac{SUMO} Lane IDs}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] \ac{SUMO} lane IDs for each parking lot. The lane IDs are obtained through \ac{SUMO} GUI.
+  \item[Purpose] The parking lot lane ID is where each parking lot is situated in the \ac{SUMO} road network. The lane ID is required in order to route a vehicle road that the parking lot is located on. Additionally, it is the only accepted parameter for the vehicle routing function.
+\end{description}
+
+\subsubsection{\underline{Capacity Data}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] The data includes the capacities of each parking lot. The process of acquiring this data is explained in section \ref{ssec:car_par_cap}.
+  \item[Purpose] The parking lot capacities are used to calculate the percentage of available spaces of a particular parking lot during the simulation.
+\end{description}
+
+\subsubsection{\underline{Vacancy Data}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] Dublin parking lot data is obtained as explained in section \ref{data:parking_lot}. The data includes Dublin parking lot vacancies at a particular time.
+  \item[Purpose] Dublin parking lot vacancy data is used to populate the parking lot spaces upon simulation initialisation.
+\end{description}
+
+
+%% NEXT SECTION
+
+\subsection{On-Street Parking}
+\subsubsection{\underline{\ac{OMNeT++} Coordinates}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] \ac{OMNeT++} converted coordinates of each on-street parking location. The dataset is obtained through the \ac{VEINS} supplied \ac{SUMO} to \ac{OMNeT++} coordinate conversion function.
+  \item[Purpose] Used to calculate the distances between a vehicles' final destination to the on-street parking locations.
+\end{description}
+
+\subsubsection{\underline{\ac{SUMO} Lane ID}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] The \ac{SUMO} lane ID for each on-street parking location. The lane IDs are obtained through the \ac{SUMO} GUI. 
+  \item[Purpose] The \ac{SUMO} lane ID is used to route the vehicles to the location of the on-street parking location.
+\end{description}
+
+\subsubsection{\underline{Capacity Data}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] The on-street parking capacities. The process of acquiring the data is explained in section \ref{ssec:on-street_parking_info}
+  \item[Purpose] On-street capacities are used to calculate the percentage of available spaces for a specific on-street parking location during the simulation.
+\end{description}
+
+\subsubsection{\underline{Parking Times}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] The parking duration of drivers. The dataset is obtained through ParkingTag as explained in section \ref{ssec:on-street_parking_data}.
+  \item[Purpose] The parking duration of a driver is used to assign the wait time for a vehicle after it has parked during the simulation.
+\end{description}
+
+%% NEXT SECTION
+
+\subsection{Other}
+\subsubsection{\underline{Final Destination Sectors}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] A finite list of the final destinations that the vehicles randomly choose during the simulation.
+  \item[Purpose] The reason behind this is to localise the destination to a set region within inner city Dublin.
+\end{description}
+
+\subsubsection{\underline{All \ac{SUMO} Lanes and Coordinates}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] This is a dataset of the \ac{SUMO} lane ID and \ac{SUMO} coordinate of each road within the Dublin road network. In other words, it is a subset of the road network file generated through NETCONVERT mentioned in section \ref{ssec:netconvert}.
+  \item[Purpose] The purpose of this dataset stems from the dataset of destination sectors. Despite the localised randomness of the destination sectors, there was a need for more granular destinations for each vehicle within the destination sectors defined. The \ac{SUMO} coordinates of a particular road is required to calculate the relative distance to the final destination sector and the \ac{SUMO} lane ID is used to assign the vehicle to the location if the destination criteria holds. This is explained in detail in section \ref{ssec:vehicle_init}.
+\end{description}
+
+\subsubsection{\underline{Exit Lane ID}}
+\begin{description}[leftmargin=8em,style=nextline]
+  \item[Explanation] A finite list of the exit lane IDs. The lane IDs are chosen near the points where the vehicles enter.
+  \item[Purpose] The vehicles' route is destined for a randomly selected exit location. The lane ID is used after a vehicles' parking duration is up.
+\end{description}
+

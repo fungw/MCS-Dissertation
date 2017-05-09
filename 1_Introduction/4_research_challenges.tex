@@ -1,0 +1,23 @@
+\section{Research Challenges}
+Various challenges had to be overcome in order to achieve the goal of this dissertation. In this section, the research challenges as well as limitations are explained.
+
+The main objective of this dissertation is to investigate and evaluate the feasibility of a \ac{VANET} supported smart parking system for Dublin City. In order to achieve this, various Dublin specific data must be obtained. This includes Dublin City traffic data and Dublin City parking data; both on-street parking data and parking lot data. The lists below were compiled during the designing phase of the dissertation. The first list highlights the obtainable data that is readily available on public Irish databases and websites. The second list includes data that is unavailable online and that had to be acquired by other means.
+
+\subsection*{Obtainable Data}
+\begin{itemize}
+    \item Parking Lot Occupancies - The Dublin city traffic website includes real-time information regarding available spaces in 14 parking lots within inner city Dublin. This data could be useful and will be incorporated into the simulation.
+    \item Parking Lots Locations - Knowledge of the location of parking lots within inner city Dublin is necessary to route drivers to the desired parking lot in the simulation. The 14 parking lots that the Dublin city traffic website provide is easily identifiable on Google Maps, their coordinates are recorded.
+    \item On-Street Parking Locations - Each individual on-street parking location is unavailable. However, data.gov.ie features a dataset that contains all available parking meters in the county of Dublin. Included in the dataset is the amount of on-street parking spaces that they serve. This approximation of on-street parking locations will be used in the simulation.
+    \item Average Traffic Volumes - Traffic volumes datasets are available on data.gov.ie. However, the online traffic data is only composed of traffic data outside of inner city Dublin. More specifically, the datasets only include inbound and outbound traffic of national roads along the M50. The region of interest in this dissertation is inner city Dublin, thus inner city Dublin traffic volumes must be acquired by other means.
+    \item Emissions - Used as an evaluation metric. \ac{VEINS} features an emissions model that allows for emissions results.
+\end{itemize}
+
+\subsection*{Unavailable Data}
+\begin{itemize}
+    \item Occupancy data on on-street parking spots - The parking duration of Dublin drivers within the inner Dublin city district is required to model a realistic environment for this dissertations' simulation.
+    \item Inner Dublin city traffic data - More fine grain data of inner city traffic could be used to model a more realistic traffic flow environment.
+\end{itemize}
+
+Despite the occupancy and traffic data not being easily available online, the process of acquiring the data alternatively is explained in detail in section \ref{sec:design_data}.
+
+Research limitations also included the computational power required to run the simulations. There were attempts to run simulations on university computers and from a personal laptop. However, in both cases, the estimated completion time exceeded two weeks. Initially the simulations were run with the simulations' GUI which would have impacted the run-time. Eventually, college virtual machines were requested to perform the simulations via the command line. From the college virtual machines, the simulations were completed in one week.

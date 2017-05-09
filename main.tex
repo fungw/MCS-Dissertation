@@ -1,0 +1,103 @@
+\documentclass[a4paper, 11pt, oneside]{report}
+\usepackage{tcdthesis}
+
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{import}
+\usepackage{apacite}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage[acronym]{glossaries}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{eurosym}
+\usepackage[printonlyused]{acronym}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\mastersthesis
+\oneandhalfspace
+
+\renewcommand{\thesisauthor}{Wesley Fung}
+\renewcommand{\thesismonth}{May}
+\renewcommand{\thesisyear}{2017}
+\renewcommand{\thesistitle}{VANET: Evaluating Smart Parking Performance in a Dublin Scenario}
+\renewcommand{\thesisauthorpreviousdegrees}{}
+\renewcommand{\thesissupervisor}{Siobhán Clarke}
+\renewcommand{\thesisauthoraddress}{...}
+\renewcommand{\thesisdedication}{}
+
+\begin{document}
+
+\thesistitlepage
+\thesisdeclarationpage
+\thesispermissionpage
+
+\begin{thesisacknowledgments}
+I would like to thank the following people for the continuous support, patience and time throughout the course.
+\begin{itemize}
+    \setlength\itemsep{0em}
+    \item My academic supervisor Prof. Siobhán Clarke for her knowledge, expertise and help throughout the year.
+    \item My family for their continued support throughout my entire college career.
+    \item My classmates in Integrated Computer Science for their continued motivation.
+    \item Dublin City Council staff for providing the required traffic data.
+    \item ParkingTag staff for providing the required parking data.
+    \item Dr. Christopher Sommer of VEINS for assisting me on questions I had about VEINS.
+    \item Simulation of Urban MObility (SUMO) staff for answering my questions regarding SUMO.
+\end{itemize}
+\end{thesisacknowledgments}
+
+\pagebreak
+
+\section*{List of Acronyms}
+\begin{acronym}
+    \acro{DCC}{Dublin City Council}
+    \acro{VANET}{Vehicular Ad-Hoc Networking}
+    \acro{SUMO}{Simulation of Urban MObility}
+    \acro{OMNeT++}{Objective Modular Network Testbed in C++}
+    \acro{VEINS}{Vehicles in Network Simulation}
+    \acro{CCTV}{Closed Circuit Television}
+    \acro{OSM}{OpenStreetMaps}
+    \acro{JOSM}{Java OpenStreetMaps}
+    \acro{RSUs}{Road Side Units}
+    \acro{RSU}{Road Side Unit}
+\end{acronym}
+
+\begin{thesisabstract}
+\import{}{./0_Abstract/0_problem.tex}
+\import{}{./0_Abstract/1_related.tex}
+\import{}{./0_Abstract/2_solution.tex}
+\import{}{./0_Abstract/3_results.tex}
+\end{thesisabstract}
+
+\tableofcontents                                  %% Generate table of contents.
+\listoftables                                     %% Uncomment this to generate list of tables.
+\listoffigures                                    %% Uncomment this to generate list of figures.
+\printglossary[type=\acronymtype]
+
+%%
+%% Include thesis chapters here...
+%%
+  \include{./Template/chapter1}
+  \include{./Template/chapter2}
+  \include{./Template/chapter3}
+  \include{./Template/chapter4}
+  \include{./Template/chapter5}
+  \include{./Template/chapter6}
+
+\addcontentsline{toc}{chapter}{Appendices}       %% Force Appendices to appear in contents
+\begin{appendix}
+ \include{./Template/appendix1}
+\end{appendix}
+
+%\addcontentsline {toc}{chapter}{Bibliography}     %% Force Bibliography to appear in contents
+
+\bibliographystyle{apacite}
+\bibliography{./mendeley.bib}
+
+\end{document}

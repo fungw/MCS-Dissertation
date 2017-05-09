@@ -1,0 +1,4 @@
+\subsection{Dublin Parking Lot Data}\label{data:parking_lot}
+Live Dublin parking lot data is publicly available through the DCC website. Parking lot data is required in order to provide a realistic model on the occupancies of Dublin parking lots. The data is used to pad the spaces of parking lots in the simulation.
+
+Scrapy is a Python crawler for extracting data from websites. A cronjob is set up for the crawler to scrape the live Dublin parking lot site every two minutes. The data is periodically saved to an SQLite database so that it can be extracted later on and used in the simulation.
