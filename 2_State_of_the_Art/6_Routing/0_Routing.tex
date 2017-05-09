@@ -4,13 +4,13 @@ To be able to utilise parking information in order to inform drivers of the real
 \subsubsection{Salesman Model}
 A well defined algorithm is discussed \cite{6}, that takes into account multiple factors that are of concern. A major problem with working with smart parking systems is to try to deter drivers from arriving at parking spots that have just become occupied. Thus, the analysis that follows will be based on the formula below.
 
-\[ C(a,b,t\textsubscript{tot}) = t\textsubscript{ab} + p(t\textsubscript{tot}) * \omega\textsubscript{b} + [1 - p(t\textsubscript{tot})] * D\]
+[ C(a,b,t\textsubscript{tot}) = t\textsubscript{ab} + p(t\textsubscript{tot}) * \[\omega\]\textsubscript{b} + [1 - p(t\textsubscript{tot})] * D]
 
 The formula is based loosely on the travelling salesman method. Whereby the aim is to devise a least cost path for a driver to get to a parking spot.
 
 t\textsubscript{ab}: Time required to drive from space a to space b
 
-\omega\textsubscript{b}: $ Time to walk from space to destination
+\[\omega\]\textsubscript{b}: $ Time to walk from space to destination $
 
 D: Time penalty for if space is taken
 
@@ -18,7 +18,7 @@ t\textsubscript{tot}: Time until parking spot is reached
 
 p(t\textsubscript{tot}): Probability that the space is still available
 
-\omega\textsubscript{b} $, the time to walk to the destination is weighted by p(t\textsubscript{tot}) the probability that the space will still be available.
+\[\omega\]\textsubscript{b} $ The time to walk to the destination is weighted by p(t\textsubscript{tot}) the probability that the space will still be available. $
 
 Whereas D is weighted by the complement of the probability that the space will not be there.
 
