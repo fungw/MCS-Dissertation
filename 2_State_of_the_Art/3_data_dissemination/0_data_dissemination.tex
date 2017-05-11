@@ -1,0 +1,39 @@
+\subsection{Parking Data Dissemination}
+To be able to utilise parking information in order to inform drivers of the real-time states of urban parking spots; whether they are in parking lots or on-street spots. Different algorithms have been proposed by different papers \citep{Schlote2014Delay-tolerantAssignment}, \citep{Verroios2011ReachingNetworking} and \citep{Lin2015SmartService}.
+
+\subsubsection{Salesman Model}
+A well defined algorithm is discussed \citep{Verroios2011ReachingNetworking}, that takes into account multiple factors that are of concern. A major problem with working with smart parking systems is to try to deter drivers from arriving at parking spots that have just become occupied. Thus, the analysis that follows will be based on the formula below.
+
+\[ C(a,b,t\textsubscript{tot}) = t\textsubscript{ab} + p(t\textsubscript{tot}) * \omega\textsubscript{b} + [1 - p(t\textsubscript{tot})] * D\]
+
+The formula is based loosely on the travelling salesman method. Whereby the aim is to devise a least cost path for a driver to get to a parking spot.
+
+t\textsubscript{ab}: Time required to drive from space a to space b
+
+\omega\textsubscript{b}: $ Time to walk from space to destination
+
+D: Time penalty for if space is taken
+
+t\textsubscript{tot}: Time until parking spot is reached
+
+p(t\textsubscript{tot}): Probability that the space is still available
+
+\omega\textsubscript{b} $, the time to walk to the destination is weighted by p(t\textsubscript{tot}) the probability that the space will still be available.
+
+Whereas D is weighted by the complement of the probability that the space will not be there.
+
+p(t\textsubscript{tot}) is calculated by an space average life-time (salt) variable. 
+
+Whereby: 
+
+\[ p(t\textsubscript{tot}) = \frac{salt}{t\textsubscript{tot} + salt} \]
+
+The time penalty D may be calculated with the factors of the spaces that the driver has missed, due to destined parking spots being occupied before the driver arrives at it, the time it takes to drive from one spot to another spot (sts) and also the average walk time from all spaces to the destination (wat).
+
+Thus the time penalty can be formulated as:
+
+\[ D = asm * sts + wat \]
+
+This algorithm performs to dynamically allocate a route for a driver through designated parking spot locations.
+
+Other forms discussed in the paper \citep{Verroios2011ReachingNetworking} is to cluster parking spaces into areas that the driver may traverse to; to cluster spaces near where the drivers destination is. Since the routing algorithms are to be calculated on the drivers device, by clustering a group of spaces, the load complexity in the calculations will be minimised.

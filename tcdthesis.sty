@@ -1,4 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% File updated by Zachary Diebold, May 2017
 %%%
 %%% File: utthesis2.sty, version 2.0ame, February 2003
 %%%
@@ -163,6 +164,7 @@
 %%%
 %%% thesisacknowledgments
 %%%                  %% Text of acknowledgments.
+%%% thesissummary   %% Text of summary.
 %%% thesisabstract   %% Text of abstract.
 %%% thesisauthorvita %% Text of author's vita.
 %%%
@@ -251,6 +253,7 @@
 \newcommand{\thesiscommitteetypesize}{\large}
 \newcommand{\thesisvitahead}{Vita}
 \newcommand{\thesisvitaheadtypesize}{\Large}
+\newcommand{\thesissummaryhead}{Summary}
 \newcommand{\thesisacknowledgmenthead}{Acknowledgments}
 \newcommand{\thesisacknowledgmentheadtypesize}{\Large}
 \newcommand{\thesisacknowledgmentsigname}{\thesisauthor}
@@ -300,6 +303,8 @@
 \newcommand{\@thesiscommittee}%
     {\textbf{\thesiscommitteetypesize \thesiscommittee}}
 \newcommand{\@thesisvitahead}{\thesisvitahead}
+\newcommand{\@thesissummaryhead}%
+    {\thesissummaryhead}
 \newcommand{\@thesisacknowledgmenthead}%
     {\thesisacknowledgmenthead}
 \newcommand{\@thesisacknowledgmentsigname}%
@@ -355,37 +360,17 @@
 
 \newcommand{\thesisdeclarationpage}{{
 	
-	\thispagestyle{empty}
+	\addcontentsline{toc}{chapter}{Declaration of Authorship}
 	\begin{spacing}{2}
 	\begin{center}
-		\section*{Declaration}
+		\section*{Declaration of Authorship}
 	\end{center}
 	\vspace{26mm}
-
-	I, the undersigned, declare that this work has not previously been submitted as an
-	exercise for a degree at this, or any other University, and that unless otherwise
-	stated, is my own work.
-
-	\vspace{26mm}
-	\thesissigline{\thesisauthor}
-	\hspace{50mm}
-	{\today} \\
-	\end{spacing}
-	\newpage}}
-
-
-\newcommand{\thesispermissionpage}{{
-
-	\thispagestyle{empty}
-	\begin{spacing}{2}
-	\begin{center}
-		\section*{Permission to Lend and/or Copy}
-	\end{center}
-
-	\vspace{26mm}
-
-	I, the undersigned, agree that Trinity College Library may lend or copy this thesis upon
-	request. \\ \\
+    
+    I, \thesisauthor, declare that the following dissertation, except where otherwise stated,
+    is entirely my own work; that it has not previously been submitted as an exercise for a degree,
+    either in Trinity College Dublin, or in any other University;
+    and that the library may lend or copy it or any part thereof on request.
 
 	\vspace{26mm}
 	\thesissigline{\thesisauthor}
@@ -421,7 +406,9 @@
       \thesismonth \ \thesisyear
     \end{center}
     \end{spacing}
-    \newpage}
+    \newpage
+    \clearpage
+    \pagenumbering{\@preamblepagenumbering}}
 
 %%%
 %%% Command to generate old-style signature page, which as
@@ -525,13 +512,25 @@
     \thesiscertificationsignaturelines
     \setlength\baselineskip\@tmplength
     \clearpage}
-
-
+    
+%%%
+%%% Environment to generate summary page.
+%%%
+\newenvironment{thesissummary}
+    {%\doublespace\small\normalsize
+     \chapter*{\@thesissummaryhead
+         \@mkboth{\uppercase{\@thesissummaryhead}}
+                 {\uppercase{\@thesissummaryhead}}}
+     \addcontentsline{toc}{chapter}{\@thesissummaryhead}
+     \begin{spacing}{\@defaultbaselinestretch}}
+    {\end{spacing} \newpage}
+	
 %%%
 %%% Environment to generate abstract page.
 %%%
 \newenvironment{thesisabstract}
     {\chapter*{}
+     \thispagestyle{empty}
      \addcontentsline{toc}{chapter}{Abstract}
      \vspace*{0mm}
      \begin{center}
@@ -547,7 +546,7 @@
        Supervisor: \thesissupervisor \\
      \end{center}
      \vspace{5mm}
-     \begin{spacing}{\@defaultbaselinestretch} \noindent}
+     \begin{spacing}{1} \noindent}
     {\end{spacing} \newpage}
 
 %%%
@@ -569,15 +568,15 @@
 %%%
 \newenvironment{thesisacknowledgments}
     {%\doublespace\small\normalsize
-     \chapter*{\@thesisacknowledgmenthead
+    \chapter*{\@thesisacknowledgmenthead
          \@mkboth{\uppercase{\@thesisacknowledgmenthead}}
                  {\uppercase{\@thesisacknowledgmenthead}}}
      \addcontentsline{toc}{chapter}{\@thesisacknowledgmenthead}
      \begin{spacing}{\@defaultbaselinestretch}}
     {\end{spacing} \par \vspace{20mm}
-     \raggedleft \@thesisacknowledgmentsigname \\[10mm]
-     \raggedright \@thesisacknowledgmentsigplace \newpage}
-
+    \raggedleft \@thesisacknowledgmentsigname \\[10mm]		
+    \raggedright \@thesisacknowledgmentsigplace \newpage}
+     
 %%%
 %%% Environment to generate vita page.
 %%%
@@ -609,7 +608,7 @@
    \ifnum\@appendix=1
      \renewcommand{\@chaptertype}{\appendixname}
    \else
-     \renewcommand{\@chaptertype}{\chaptername}
+     \renewcommand{\@chaptertype}{}
    \fi
    \thispagestyle{plain}%
    \global\@topnum\z@
@@ -668,7 +667,7 @@
   \vspace*{50\p@}%
   {\parindent \z@ \@chapteralignment \reset@font
     \ifnum \c@secnumdepth >\m@ne
-      \huge\bfseries \@chapapp{} \thechapter
+      \LARGE\bfseries \@chapapp{} \thechapter
       \par
       \vskip 20\p@
     \fi
@@ -677,7 +676,7 @@
     \vskip 40\p@
   }}
 \def\@makeschapterhead#1{%
-  \vspace*{50\p@}%
+  \vspace*{30\p@}%
   {\parindent \z@ \@chapteralignment
     \reset@font
     \Huge \bfseries  #1\par
