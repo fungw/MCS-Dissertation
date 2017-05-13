@@ -1,39 +1,48 @@
 \subsubsection*{Comparison of Sensing Technologies}
+The list below provides the general considerations when implementing parking space sensors. The considerations are put forward by this paper \citep{Lin2015SmartService}. Additional information is obtained from \citep{dokur_embedded_2016} regarding the cost and accuracy of sensors mentioned. \\
+
+The columns of each table below is explained in this list. 
+\begin{description}[leftmargin=12em, style=nextline]
+    \item[Intrusive Installation (IV)] Intrusive installation is defined as whether the sensor needs to be embedded into the road.
+    \item[Multiple Detection (MD)] The ability to detect multiple parking space vacancies at once.
+    \item[Cost (C)] The cost of each sensor is an important consideration. This also depends on whether the sensor is able to detect multiple spaces. Detection of multiple spaces would bypass the need for a single sensor per parking spot.
+    \item[Accuracy (A)] The accuracy of a sensor device depends on environmental factors, as well as the method in detecting parking spaces.
+\end{description}
+
 \subsubsection*{Stationary Sensors}
-\begin{tabularx}{\textwidth}{|X|c|c|c|c|c}
-    \hline
-    Sensor & C & IV & MD & A \\
-    \hline
-    Magnetometer & ** & \checkmark & - & *** \\
-    Ultrasonic & * & - & \checkmark & *** \\
-    Vision & *** & - & \checkmark & ** \\
-    RFID & ** & \checkmark & - & ** \\
-    Infrared & * & - & \checkmark & ** \\
-    Acoustic & *** & - & \checkmark & * \\
-    Radar & *** & - & \checkmark & *** \\
-    Piezoelectric & **** & \checkmark & \checkmark & *** \\
-    Inductive Loop & * & \checkmark & - & *** \\
-    Optical & * & - & - & ** \\
-    Accelerometer & * & - & \checkmark & * \\
-    \hline
-\end{tabularx}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|X|c|c|c|c|c}
+            \hline
+            Sensor & C & IV & MD & A \\
+            \hline
+            Accelerometer & * & - & \checkmark & * \\
+            Acoustic & *** & - & \checkmark & * \\
+            Magnetometer & ** & \checkmark & - & *** \\
+            Optical & * & - & - & ** \\
+            RFID & ** & \checkmark & - & ** \\
+            Ultrasonic & * & - & \checkmark & *** \\
+            Vision & *** & - & \checkmark & ** \\
+            \hline
+        \end{tabularx}
+        \caption{Stationary Sensors Comparison Table}
+        \label{table:stationary_sensors}
+    \end{center}
+\end{table}
 
 \subsubsection*{Mobile Sensors}
-\begin{tabularx}{\textwidth}{|X|c|c|c|c|c}
-    \hline
-    Sensor & C & IV & MD & A \\
-    \hline
-    Ultrasonic & * & - & \checkmark & *** \\
-    Scanning Laser Range Sensor & *** & - & \checkmark & *** \\
-    Smartphone (Crowdsource) & - & - & \checkmark & - \\
-    \hline
-\end{tabularx}
-
-The list below provides the general considerations when implementing parking space sensors. The considerations are put forward by this paper \citep{Lin2015SmartService}.
-
-\begin{description}[leftmargin=12em, style=nextline]
-    \item[Intrusive Installation] Intrusive installation is defined as whether the sensor needs to be embedded into the road \citep{Lin2015SmartService}.
-    \item[Multiple Detection] The ability to detect multiple parking space vacancies at once.
-    \item[Cost] The cost of each sensor is an important consideration. This also depends on whether the sensor is able to detect multiple spaces. Detection of multiple spaces would bypass the need for a single sensor per parking spot.
-    \item[Accuracy] The accuracy of a sensor device depends on environmental factors, as well as the method in detecting parking spaces.
-\end{description}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|X|c|c|c|c|c}
+            \hline
+            Sensor & C & IV & MD & A \\
+            \hline
+            Ultrasonic & * & - & \checkmark & *** \\
+            Scanning Laser Range Sensor & *** & - & \checkmark & *** \\
+            Smartphone (Crowdsource) & - & - & \checkmark & - \\
+            \hline
+        \end{tabularx}
+        \caption{Mobile Sensors Comparison Table}
+        \label{table:mobile_sensors}
+    \end{center}
+\end{table}

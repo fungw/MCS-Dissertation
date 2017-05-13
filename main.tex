@@ -18,10 +18,17 @@
 \usepackage{textcomp}
 \usepackage{eurosym}
 \usepackage[printonlyused]{acronym}
+
+\usepackage {fancyhdr}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\textit{\nouppercase{\leftmark}}}
+
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 
 \mastersthesis
 \oneandhalfspace
+\leftchapter
 
 \renewcommand{\thesisauthor}{Wesley Fung}
 \renewcommand{\thesismonth}{May}
@@ -48,7 +55,7 @@
 \end{thesisabstract}
 
 \begin{thesisacknowledgments}
-I would like to thank the following people for the continuous support, patience and time throughout the course.
+I would like to thank the following people for their continuous support, patience and time throughout the course.
 \begin{itemize}
     \setlength\itemsep{0em}
     \item My academic supervisor Prof. Siobhán Clarke for her knowledge, expertise and help throughout the year.
@@ -69,7 +76,11 @@ I would like to thank the following people for the continuous support, patience 
 
 \pagebreak
 
-\section*{List of Acronyms}
+%%
+%% Acronyms
+%%
+\chapter*{List of Acronyms}
+\addcontentsline {toc}{chapter}{List of Acronyms}
 \begin{acronym}
     \acro{DCC}{Dublin City Council}
     \acro{VANET}{Vehicular Ad-Hoc Networking}
@@ -82,7 +93,11 @@ I would like to thank the following people for the continuous support, patience 
     \acro{RSUs}{Road Side Units}
     \acro{RSU}{Road Side Unit}
     \acro{CNN}{Convolutional Neural Network}
+    \acro{RFID}{Radio Frequency IDentification}
+    \acro{SVM}{Supported Vector Machines}
+    \acro{SPS}{Smart Parking System}
 \end{acronym}
+
 %%
 %% Include thesis chapters here...
 %%

@@ -1,2 +1,15 @@
 \subsubsection*{Magnetometer}
-Magnetometers are used to detect large bodies of metal. This can be a useful application for the detection of parked cars in parking spaces. As illustrated in this paper \citep{angelis_simple_2016}, 
+Magnetometers are used to detect large bodies of metal. This can be a useful application for the detection of parked cars in parking spaces. As illustrated in this paper \citep{Villanueva2016CrowdsensingMonitoring}, tests are carried out with the magnetometer in a Samsung Galaxy S4. The study was conducted in three different scenarios. In the first scenario, the goal was to try and classify different magnetometer readings in various situations. Additionally, an investigation into whether an active engine interferes with the magnetometer readings. A subset of the possible combinations are as follows:
+
+\begin{itemize}
+    \item Adjacent vehicles on both sides, test vehicle engine on, test vehicle stopped
+    \item Vehicle on the right side, test vehicle engine on, test vehicle stopped
+    \item Vehicle on the left side, test vehicle engine off, test vehicle stopped.
+    \item No vehicles close, test vehicle engine on, test vehicle stopped.
+\end{itemize}
+
+The study successfully classifies readings through the use of \ac{SVM}. With the classifications, the mobile phone could send the sensed information to a central server. In this way, the central server will know if parking spaces near the sender are occupied or vacant.
+
+In the second scenario, the aim was to investigate whether a moving test vehicle equipped with a mobile magnetometer is able to detect vacant parking spaces. The setup of this scenario includes a line of parked vehicles with one vacant spot. The test vehicle drives alongside the line of parked vehicles, emulating a vehicle driving down a street of parked vehicles. The magnetometer showed a significant reading as it passed the vacant spot, thus the investigation concludes that it is successful in detecting vacant parking spots.
+
+In the third scenario, the distance of a parked vehicle to the test vehicle is investigated. The test begins with the test vehicle parked beside another vehicle. The test vehicle is then moved further and further away from a parked vehicle. The results show that the magnetometer readings are useless unless vehicles are very near.
