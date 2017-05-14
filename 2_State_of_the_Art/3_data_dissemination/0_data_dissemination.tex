@@ -1,22 +1,20 @@
-\pagebreak
-
 \subsection{Parking Data Dissemination}
-Parking data dissemination refers to the method parking data reaches drivers. In this dissertation, the parking data dissemination model revolves around the vehicles themselves; the parking data is disseminated from vehicle to vehicle. Parking data dissemination could also take the form of vehicle to infrastructure communications. Different algorithms have been explored by various papers  \citep{Schlote2014Delay-tolerantAssignment}, \citep{Verroios2011ReachingNetworking} and \citep{Lin2015SmartService}. In the following sections three sections, different approaches outlined by \cite{Verroios2011ReachingNetworking} is explained. Each approach is important as they lead up to this dissertations' simulation data dissemination processes.
+Parking data dissemination refers to the method of sending parking data to drivers. In this dissertation, the parking data dissemination model is assigned to the vehicles themselves; the parking data is disseminated from vehicle to vehicle. Parking data dissemination could also take the form of vehicle to infrastructure communications. This may take the form of utilising \ac{RSU} to relay information to vehicles on the road. Different algorithms have been explored by various papers  \citep{Schlote2014Delay-tolerantAssignment}, \citep{Verroios2011ReachingNetworking} and \citep{Lin2015SmartService}. In the following three sections, different approaches outlined by \citep{Verroios2011ReachingNetworking} are explained. Each approach is important as they lead up to this dissertations' simulation data dissemination process.
 
 \textbf{To note:} The live model and cluster models are most applicable to this dissertations' simulation. However, information regarding the exact model is also outlined as part of an analysis of the paper.
 
 \subsubsection{Exact Model}\label{sssec:exact}
-As outlined in section \ref{s:motivation}, to avoid the scenario of drivers arriving at parking spaces that are just taken is an interesting domain to explore. Three well defined algorithms are discussed \citep{Verroios2011ReachingNetworking}, the paper takes into account various parking factors, including probabilities that the parking space will be taken and time required to walk from the parking space to the drivers' final destination. The analysis that follows will be based on the formula below.
+As outlined in section \ref{s:motivation}, to avoid the scenario of drivers arriving at parking spaces that are just taken is an issue for smart parking. Three well defined algorithms are discussed \citep{Verroios2011ReachingNetworking}, the paper takes into account various parking factors, including probabilities that the parking space will be taken and time required to walk from the parking space to the drivers' final destination. These factors are incorporated in calculating the best cost path for a driver to traverse through. The analysis that follows will be based on the formula below. 
 
 \[ C(a,b,t\textsubscript{tot}) = t\textsubscript{ab} + p(t\textsubscript{tot}) * \omega\textsubscript{b} + [1 - p(t\textsubscript{tot})] * D\]
 
-The formula is based loosely on the travelling salesman method. The aim is to devise a least cost path for a driver to get to a parking spot.
+The formula is based loosely on the travelling salesman method. The aim is to devise a least cost path for a driver to get to a parking spot that is not already taken.
 
 t\textsubscript{ab}: Time required to drive from space a to space b
 
 \omega\textsubscript{b}: $ Time to walk from space to destination
 
-D: Time penalty for if space is taken
+D: Time penalty if space is taken
 
 t\textsubscript{tot}: Time until parking spot is reached
 
@@ -24,41 +22,58 @@ p(t\textsubscript{tot}): Probability that the space is still available
 
 \omega\textsubscript{b}: $ Time to walk to the destination is weighted by p(t\textsubscript{tot}) the probability that the space will still be available.
 
-Whereas D is weighted by the complement of the probability that the space will not be there.
-
-p(t\textsubscript{tot}) is calculated by an space average life-time (salt) variable. 
+p(t\textsubscript{tot}) is calculated by a space average life-time (salt) variable. 
 
 Whereby: 
 
 \[ p(t\textsubscript{tot}) = \frac{salt}{t\textsubscript{tot} + salt} \]
 
-The time penalty D may be calculated with the factors of the spaces that the driver has missed, due to destined parking spots being occupied before the driver arrives at it, the time it takes to drive from one spot to another spot (sts) and also the average walk time from all spaces to the destination (wat).
+The time penalty denoted as \textit{D} is calculated with the following factors:
+\begin{itemize}
+    \item The amount of spaces missed (asm) by the driver as a result of arriving at already occupied parking spots.
+    \item The time it takes to drive from an occupied parking spot to another. This is referred to as spot to spot  (sts).
+    \item The average walk time from all spaces to the destination (wat).
+\end{itemize}
 
-Thus the paper formulates the time penalty as:
+Thus the time penalty is formulated as:
 
 \[ D = asm * sts + wat \]
 
-This algorithm performs to dynamically allocate a route for a driver through designated parking spot locations.
+This formula forms the basis of calculating the best-cost path for a driver.
 
 \subsubsection{Cluster Model}\label{sssec:cluster}
-Other forms discussed in the paper \citep{Verroios2011ReachingNetworking} was to cluster parking spaces. The motivations behind clustering spaces is that there is concern for the limited processing power that vehicles may possess. By clustering parking spaces, the process of determining a drivers' trajectory will be minimised. The parking spaces are clustered by their proximities to each other. The algorithm to compute the least cost path for drivers is similar to that of the exact algorithm. However, instead of routing through exact spaces, they are altered to route through the defined clusters.
+Other forms of data dissemination discussed in the paper \citep{Verroios2011ReachingNetworking} was to cluster parking spaces. The motivations behind clustering spaces is that there is concern for the limited processing power that vehicles may possess. By clustering parking spaces, the process of determining a drivers' trajectory will be minimised. The parking spaces are clustered by their proximities to each other. The algorithm to compute the best cost path for drivers is that of the exact algorithm. However, instead of routing through exact spaces, it is altered to route through the defined clusters.
+
+With computational power of on-board devices in vehicles, the cluster sizes must also be adjusted to avoid substantial computational load. Quality Threshold Clustering defines a threshold for radius of clusters. K-medoid clustering is used to create clusters that have minimal distances between parking spots.
 
 \subsubsection{Live Model}\label{sssec:live}
-The live approach focuses on inter-vehicle communications. As outlined in the paper \citep{Verroios2011ReachingNetworking}, vehicles communicate with other vehicles within their vicinity to update and report parking spaces occupancies and vacancies. Furthermore, re-adjustments may be made by vehicles to alter their route trajectories. As previously mentioned in the cluster model, one of the focuses is to minimise the computations needed on an on-board device of a vehicle. Thus the cluster model is incorporated into this live approach. In other words, instead of dealing with each individual parking spaces' status, it updates each parking area cluster.
+The live approach focuses on inter-vehicle communications. As outlined in the paper \citep{Verroios2011ReachingNetworking}, vehicles communicate with other vehicles within their vicinity to update and report parking spaces occupancies and vacancies. Furthermore, re-adjustments may be made by vehicles to alter their route trajectories dynamically. As previously mentioned in the cluster model section, one of the focuses is to minimise the computations required on an on-board device of a vehicle. Thus the cluster model is incorporated into this live approach. In other words, instead of dealing with each individual parking spaces' status, it updates each parking area cluster.
 
-\subsubsection*{Comparison of Time Complexities}
+The ``live" approach to dissemination parking data between vehicles forms the foundation of this dissertations' simulation. The ``clustering model" forms the basis of the structure of the parking spaces in this dissertations' simulation.
+
+\subsubsection*{Comparison of Approaches}
+Table \ref{table:time_complexities} features a comparison of the three different approaches. 
+
+\begin{itemize}
+    \item Time Complexity: Amount of time the algorithm would take
+    \item Dissemination Protocol: The process of data dissemination
+    \item Parking Spaces Scope: The parking spaces associated with the algorithm
+    \item Algorithms Involved: Additional algorithms involved in the approach
+\end{itemize}
 \begin{table}[H]
     \centering
     \resizebox{\textwidth}{!}{%
         \begin{tabular}{@{}|p{3cm}|p{4cm}p{4cm}p{4cm}|@{}}
             \toprule
-            Algorithm & Exact-Approach & Cluster Approach & Live Approach\\ \midrule
+            Algorithm & Exact Approach & Cluster Approach & Live Approach\\ \midrule
             Time Complexity & $\mathcal{O}(n\textsuperscript{3}T2\textsuperscript{n})$, where n = no. of parking spaces, T = time of longest trip & $\mathcal{O}(n\textsuperscript{3}T2\textsuperscript{n})$, where n = no. of clusters, T = time of longest trip & $\mathcal{O}(n*m)$, where n = number of clusters, m = number of pre-existing spaces\\ \hline
-            Dissemination Protocol & On-board calculations attainable from sources & On-board calculations attainable from sources & Near vehicular communications\\ \hline
+            Dissemination Protocol & On-board calculations obtained from external source (\ac{RSU}) & On-board calculations obtained from external source (\ac{RSU}) & Vehicles within vicinity\\ \hline
             Parking Spaces Scope & All available spaces that match drivers' destination criteria & Only takes into account clustered areas that match driver’s destination criteria & Nearby spaces only\\ \hline
-            Algorithms Involved & TSA Algorithm & K-medoids, Quality Threshold Clustering & Update system, re-calibration of trajectory algorithm\\ \hline
-            Parking Allocation Tendencies & No tendencies & Tendency to allocate clustered spaces that match best & Tendency to point drivers to high density parking areas (as algorithm is based on scoring function)\\ \hline
-            Parking Data & Sensed Data & Sensed Data & Sensed Data\\ \bottomrule
-            \end{tabular}%
+            Algorithms Involved & \ac{TSA} Algorithm & K-medoids, Quality Threshold Clustering & Update system, re-calibration of trajectory algorithm\\ \bottomrule
+        \end{tabular}%
     }
+    \caption{Comparison of Parking Data Dissemination Approaches}
+    \label{table:time_complexities}
 \end{table}
+
+As Verroios et al. discuss in \citep{Verroios2011ReachingNetworking}, the custom simulation that is built to evaluate the algorithms show that the ``live" approach reaches close-to-optimal trajectories. Additionally, it produced positive results for trade-offs between optimality and the computational requirements.

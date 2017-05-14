@@ -8,7 +8,7 @@ There are various parking data required for the simulation. The list below outli
 \end{itemize}
 
 \subsubsection{On-Street Parking Information}\label{ssec:on-street_parking_info}
-data.gov.ie offers various datasets for transport data in Ireland. The most granular transport dataset regarding on-street parking locations is the parking meters dataset \{CITE\}. It does not contain the precise locations of each individual parking spot, but it has the locations of every parking meter within Dublin city. More specifically, the dataset includes Irish grid reference coordinates of all parking meters as well as the number of on-street parking spaces that they serve. Thus this dataset is sufficient for the purpose of this simulation. The dataset is also substantial as it references all known parking meters in Dublin. The area of interest for this dissertation is inner city Dublin parking areas. This can be visualised as the ``yellow" and ``red" areas in terms of \ac{dcc} defined parking zones as shown in figure \ref{fig:DUBLINZONES}. 
+data.gov.ie offers various datasets for transport data in Ireland. The most granular transport dataset regarding on-street parking locations is the parking meters dataset \{CITE\}. It does not contain the precise locations of each individual parking spot, but it has the locations of every parking meter within Dublin city. More specifically, the dataset includes Irish grid reference coordinates of all parking meters as well as the number of on-street parking spaces that they serve. Thus this dataset is sufficient for the purpose of this simulation. The dataset is also substantial as it references all known parking meters in Dublin. The area of interest for this dissertation is inner city Dublin parking areas. This can be visualised as the ``yellow" and ``red" areas in terms of \ac{DCC} defined parking zones as shown in figure \ref{fig:DUBLINZONES} \citep{2017DublinTariffs}. 
 
 The resultant dataset within the concerned zones includes 175 on-street parking meters that serve 12,289 parking spaces. Each parking meter coordinate is formatted to an Irish coordinate reference plane. For the data to be usable in this dissertation, they must be converted to the more commonly used geographic coordinate system. Online tools are available to complete this conversion process.
 
@@ -17,9 +17,11 @@ The SUMO road identifiers are obtained through a manual mapping process of each 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{./Images/DUBLINZONES.PNG}
-    \caption{Dublin City Council Parking Zones Breakdown \citep{DublinTariffs}}
+    \caption{Dublin City Council Parking Zones Breakdown}
     \label{fig:DUBLINZONES}
 \end{figure}
+
+\pagebreak 
 
 \subsubsection{Car Park Information}\label{ssec:car_par_cap}
 There are 14 parking lots that this dissertation takes into account. Table \ref{table:carpark} includes the 14 parking lots and their capacities.

@@ -2,36 +2,47 @@
 In this section, the software considerations are discussed. An outline on each software is introduced, along with the reasoning behind why the implementation was settled on VEINS, SUMO and OMNeT++.
 
 \subsection{SUMO}\label{ssec:SUMO_SOFTWARE}
-SUMO is a microscopic traffic simulator \citep{SUMO2012}. A microscopic traffic simulator allows vehicles to be modelled and simulated individually. There are many other types of traffic simulators; macroscopic and mesoscopic modelling. SUMO is well established in the field of traffic simulation. 
+SUMO is a microscopic traffic simulator \citep{SUMO2012}. A microscopic traffic simulator allows vehicles to be modelled and simulated individually. There are other types of traffic simulators; macroscopic and mesoscopic modelling. In this section, a brief description of the different types of traffic simulators are outlined. This is followed by figure \ref{table:software}, illustrating the differences between current traffic simulators.
+
+\subsubsection{\underline{Traffic Simulators}}
+\paragraph{Microscopic Traffic Simulators}
+Microscopic traffic simulators allow granular ground-based level modelling. This includes the simulation of individual pedestrians. Furthermore, microscopic simulators simulate each entity individually. In contrast to this, macroscopic traffic simulators focus on general traffic flows. 
 
 \paragraph{Macroscopic Traffic Simulators}
-Macroscopic traffic simulators focus on traffic planning analysis workflows. Applications for macroscopic simulators include public transport modelling and construction works traffic planning. It may be useful to simulate public transport for various reasons. Some of the features included in macroscopic public transport simulations are optimisations to bus routes to minimise transfer times and fleet sizes. Public transport modelling may also be useful in order to estimate the costs and revenue generated from each transport route. With construction planning traffic analysis, traffic bottlenecks may be simulated and it may be possible to quantify detour traffic. PTV VISUM is a macroscopic traffic simulator that features the mentioned traffic planning applications.
+Macroscopic traffic simulators focus on traffic planning analysis workflows. Applications for macroscopic simulators include public transport modelling and construction works traffic planning. It may be useful to simulate public transport for various reasons. Some of the features included in macroscopic public transport simulations are optimisations to bus routes to minimise transfer times and fleet sizes. Public transport modelling may also be useful in order to estimate the costs and revenue generated from each transport route. With construction planning traffic analysis, traffic bottlenecks may be simulated and it may be possible to quantify detour traffic.
 
 \paragraph{Mesoscopic Traffic Simulators}
 Mesoscopic traffic simulators are useful for simulating traffic in small groups. It may be seen as a grouped microscopic simulation. Applications where mesoscopic traffic simulations are necessary is for the simulation of vehicle platooning.
 
+\subsubsection{\underline{Traffic Simulator Comparison}}
+In figure \ref{table:software} various traffic simulation packages are outlined. Columns are aspects that were considered when choosing an appropriate traffic simulator for this dissertation. The list below is compiled for definitions for non-obvious columns for figure \ref{table:software}.
+\begin{itemize}
+    \item Simulation Model identifies the type of traffic simulator (microscopic / mesoscopic / macroscopic).
+    \item Multi-Modal is the ability to simulate more than one type of traffic.
+    \item \ac{OSM} map conversion.
+\end{itemize}
+
 \begin{table}[H]
-    \begin{center}
-        \begin{tabular}{@{}|p{3cm}|p{3cm}p{3cm}p{3cm}|@{}}
+    \centering
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{@{}|p{3cm}|p{5cm}p{3cm}p{1cm}p{1cm}p{1cm}p{3cm}|@{}}
             \toprule
-            Software & SUMO & PVT VISSIM & MATSIM\\ \midrule
-            Focus & Vehicular inter-communications modelling & Traffic analysis and modelling & Large-scale agent-based transport simulation \\ \hline
-            Simulation Entities & Microscopic & Microscopic & Microscopic\\ \hline
-            Multi-modal &  & \checkmark & \checkmark \\ \hline
-            Use Cases & Traffic Simulation & Traffic Engineering, Urban Planning, Public Transport & Taxi Optimisation\\ \hline
-            Open-source & \checkmark & & \checkmark \\ \hline
-            OSM & \checkmark & & \checkmark \\ \bottomrule
-        \end{tabular}
-        \caption{Traffic Simulation Software Considerations}
-        \label{table:software}
-    \end{center}
+            Software & Focus & Simulation Model & Multi-Modal & Open Source & \ac{OSM} & Cost \\ \midrule
+            SUMO & Traffic analysis and modelling & Microscopic & \checkmark & \checkmark & \checkmark & Free \\ \hline
+            PVT VISSIM & Traffic Engineering, Urban Planning, Public Transport & Microscopic & \checkmark  & \xmark & \xmark & €250 (Student 3-day pass) \\ \hline
+            MATSIM & Large-scale agent-based transport simulation & Microscopic & \checkmark & \checkmark & \checkmark & Free \\ \hline
+            AORTA & Optimisation of autonomous traffic at a city-wide scale & Microscopic & \checkmark & \checkmark & \checkmark & Free \\ \hline
+            TransModeler & Traffic impact analysis, and signal optimisation & Microscopic & \checkmark & \xmark & \checkmark & \$12,000 \\ \hline
+            PVT VISUM & Public transport master plans, construction, traffic engineering & Macroscopic & \checkmark & \xmark & \xmark & €250 (Student 3-day pass) \\ \hline
+            AIMSUN & Traffic engineering, traffic simulation, transportation planning, emergency evacuation planning & Microscopic & \checkmark & \xmark & \xmark & N/A \\ \hline
+            Quadstone Paramics & Traffic modelling, traffic analysing & Microscopic & \checkmark & \xmark & \checkmark & N/A \\ \bottomrule
+        \end{tabular}%
+    }
+    \caption{Traffic Simulation Software Considerations}
+    \label{table:software}
 \end{table}
 
-\begin{itemize}
-    \item Multi-modal is the ability to simulate more than one type of traffic.
-    \item MAINSIM unavailable anymore.
-    \item MOVSIM is an alternative although has not been updated, general purpose simulation software.
-\end{itemize}
+\ac{SUMO} is chosen traffic simulation for this dissertation. It provides tools for \ac{OSM} road network conversion, tools for trip generations, route generations and is widely supported by an active community on their forum. 
 
 %% NEXT SECTION
 

@@ -1,5 +1,25 @@
 \subsection{Parking Data Sensing}
-In this section, the current state of the art of various parking space sensors are explored. There are various tradeoffs concerned with parking space sensors.
+There are various tradeoffs to be considered as well as the applicability of the sensors for different scenarios. An analysis of each sensor is provided along with a brief conclusion regarding the sensors applicability to parking space sensing. Figure \ref{table:sensor_description} provides an brief overview of the sensors to be discussed.
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{l|p{10cm}}
+            \textbf{Sensor Technology} & \textbf{Use in Parking Space Detection} \\
+            \hline
+            Accelerometer & Accelerometers in phones can be used to detect whether a driver has taken a parking space \\ \hline
+            Acoustic & Analysis of sound waves of the vehicles to track where they park within a parking lot \\ \hline
+            Computer Vision & Utilisation of public CCTV or private parking lot cameras to track vehicles \\ \hline
+            Crowdsensing & Pooling of information from participating drivers \\ \hline
+            Laser Range Finders & Scanning on-street locations for parking space occupancies \\ \hline
+            Magnetometer & Magnetometers in mobile phones to detect parked vehicles \\ \hline
+            Optical Fibre & Can be placed at entrances and exits of parking lots to detect cars entering and exiting \\ \hline
+            \ac{RFID} & Can be placed at entrances and exits of parking lots to scan vehicles' \ac{RFID} tags \\ \hline
+            Ultrasonic & Emits sound waves at a known location to detect if parking space is occupied \\ 
+        \end{tabularx}
+    \caption{An overview of parking sensors}
+    \label{table:sensor_description}
+    \end{center}
+\end{table}
 
 \import{}{./2_State_of_the_Art/2_Sensing/accelerometer}
 \import{}{./2_State_of_the_Art/2_Sensing/acoustic}
