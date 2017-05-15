@@ -20,9 +20,11 @@
 \usepackage[printonlyused]{acronym}
 \usepackage{amssymb}
 \usepackage{pifont}
+\usepackage{amsmath}
 
 \usepackage {fancyhdr}
 \fancyhf{}
+\setlength{\headheight}{15pt}
 \rhead{\thepage}
 \lhead{\textit{\nouppercase{\leftmark}}}
 
@@ -85,23 +87,28 @@ I would like to thank the following people for their continuous support, patienc
 \chapter*{List of Acronyms}
 \addcontentsline {toc}{chapter}{List of Acronyms}
 \begin{acronym}
+    \acro{ANPR}{Automatic Number Plate Recognition}
     \acro{CNN}{Convolutional Neural Network}
     \acro{DCC}{Dublin City Council}
     \acro{CCTV}{Closed Circuit Television}
+    \acro{HC}{Hybird Cloud}
+    \acro{ITS}{Intelligent Traffic System}
     \acro{IVC}{Inter-Vehicle Communication}
     \acro{JOSM}{Java OpenStreetMaps}
     \acro{MANET}{Mobile Ad-Hoc Networking}
+    \acro{OBU}{On-Board Unit}
     \acro{OMNeT++}{Objective Modular Network Testbed in C++}
     \acro{OSM}{OpenStreetMaps}
     \acro{RFID}{Radio Frequency IDentification}
     \acro{RSU}{Road Side Unit}
-    \acro{SPS}{Smart Parking System}
     \acro{SUMO}{Simulation of Urban MObility}
     \acro{SVM}{Supported Vector Machines}
     \acro{TSA}{Travelling Salesman Algorithm}
     \acro{VANET}{Vehicular Ad-Hoc Networking}
     \acro{VEINS}{Vehicles in Network Simulation}
-    \acro{V2D}{Vehicle-to-Device}
+    \acro{VCC}{Vehicle Cloud Computing}
+    \acro{VC}{Vehicle Cloud}
+    \acro{VuC}{Vehicle using Cloud}
     \acro{V2G}{Vehicle-to-Grid}
     \acro{V2I}{Vehicle-to-Infrastructure}
     \acro{V2V}{Vehicle-to-Vehicle}
@@ -117,14 +124,14 @@ I would like to thank the following people for their continuous support, patienc
   \include{./Template/chapter5}
   \include{./Template/chapter6}
 
-\addcontentsline{toc}{chapter}{Appendices}       %% Force Appendices to appear in contents
-\begin{appendix}
- \include{./Template/appendix1}
-\end{appendix}
-
 %\addcontentsline {toc}{chapter}{Bibliography}     %% Force Bibliography to appear in contents
 
 \bibliographystyle{apacite}
 \bibliography{./mendeley.bib}
+
+\addcontentsline{toc}{chapter}{Appendices}       %% Force Appendices to appear in contents
+\begin{appendix}
+    \include{./Template/appendix1}
+\end{appendix}
 
 \end{document}

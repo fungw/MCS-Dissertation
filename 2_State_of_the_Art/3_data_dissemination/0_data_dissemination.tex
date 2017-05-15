@@ -1,5 +1,5 @@
 \subsection{Parking Data Dissemination}
-Parking data dissemination refers to the method of sending parking data to drivers. In this dissertation, the parking data dissemination model is assigned to the vehicles themselves; the parking data is disseminated from vehicle to vehicle. Parking data dissemination could also take the form of vehicle to infrastructure communications. This may take the form of utilising \ac{RSU} to relay information to vehicles on the road. Different algorithms have been explored by various papers  \citep{Schlote2014Delay-tolerantAssignment}, \citep{Verroios2011ReachingNetworking} and \citep{Lin2015SmartService}. In the following three sections, different approaches outlined by \citep{Verroios2011ReachingNetworking} are explained. Each approach is important as they lead up to this dissertations' simulation data dissemination process.
+Parking data dissemination refers to the method of sending parking data to drivers. In this dissertation, the parking data dissemination model is assigned to the vehicles themselves; the parking data is disseminated from vehicle to vehicle. Parking data dissemination could also take the form of vehicle to infrastructure communications. This may take the form of utilising \ac{RSU} to relay information to vehicles on the road. Different algorithms have been explored by various papers  \citep{Schlote2014Delay-tolerantAssignment}, \citep{Verroios2011ReachingNetworking} and \citep{Lin2008SecurityNetworks}. In the following three sections, different approaches outlined by \citep{Verroios2011ReachingNetworking} are explained. Each approach is important as they lead up to this dissertations' simulation data dissemination process.
 
 \textbf{To note:} The live model and cluster models are most applicable to this dissertations' simulation. However, information regarding the exact model is also outlined as part of an analysis of the paper.
 
@@ -12,7 +12,9 @@ The formula is based loosely on the travelling salesman method. The aim is to de
 
 t\textsubscript{ab}: Time required to drive from space a to space b
 
-\omega\textsubscript{b}: $ Time to walk from space to destination
+\begin{math}
+\omega\textsubscript{b}: \textrm{Time to walk from space to destination}
+\end{math}
 
 D: Time penalty if space is taken
 
@@ -20,7 +22,9 @@ t\textsubscript{tot}: Time until parking spot is reached
 
 p(t\textsubscript{tot}): Probability that the space is still available
 
-\omega\textsubscript{b}: $ Time to walk to the destination is weighted by p(t\textsubscript{tot}) the probability that the space will still be available.
+\begin{math}
+    \omega\textsubscript{b}:  \textrm{Time to walk to the destination is weighted by p(t\textsubscript{tot})}
+\end{math}
 
 p(t\textsubscript{tot}) is calculated by a space average life-time (salt) variable. 
 
