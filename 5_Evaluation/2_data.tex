@@ -1,0 +1,53 @@
+\section{Simulation Data}
+In this section, the data loaded into the simulation runs are defined in tables \ref{table:data_parkinglot} and \ref{table:data_trafficFlow}.
+
+In table \ref{table:data_parkinglot}, the parking lot spaces recorded on the \textit{27\textsuperscript{th} of February 2017 at 9:00am} are shown. The occupied spaces column is used to populate the parking lot tables in the simulation.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|r|r|r|r|}
+            \hline
+            Parking Lot & Available Spaces & Total & Occupied \\
+            \hline\hline
+            Parnell & 168 & 500 & 332\\ \hline
+            ILAC & 940 & 1000 & 60\\\hline
+            Jervis & 741 & 750 & 9\\ \hline
+            Arnotts & 298 & 500 & 202 \\\hline
+            Marlboro & 357 & 567 & 210 \\ \hline
+            Abbey & 274 & 340 & 66 \\  \hline
+            Thomas Street & 217 & 220 & 3 \\ \hline
+            Christchurch & 11 & 212 & 223 \\ \hline
+            Setanta & 35 & 145 & 110 \\ \hline
+            Dawson & 183 & 370 & 187 \\ \hline
+            Trinity Street & 249 & 252 & 3 \\ \hline
+            Stephens Green & 779 & 1127 & 348 \\ \hline
+            Drury & 367 & 465 & 98 \\ \hline
+            Brown Thomas & 357 & 380 & 23 \\ \hline
+        \end{tabular}
+        \caption{Parking Lot Data in Simulation}
+        \label{table:data_parkinglot} 
+    \end{center}
+\end{table}
+
+In table \ref{table:data_trafficFlow}, traffic flow data on the \textit{29\textsuperscript{th} of April 2016 at 9:00am} are shown. The \textit{period} columns indicate the rate at which vehicles are inserted into the simulation for that specific street. The percentages indicate the scaled down rate. 0\% period indicates that there is no scaling, whereas 90\% indicates that it is scaled down by 90\%. Taking Amiens Street as an example, a count of 1,169 vehicles per hour is recorded. When there is no scaling, this equates to inserting a single vehicle every 3.08 simulation time. When the simulation is scaled at 90\%, then a single vehicle is inserted every 30.80 simulation time.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|r|r|r|r|r|}
+            \hline
+            Street & Traffic Flows & Period (0\%) & Period (50\%) & Period (90\%) \\
+            \hline\hline
+            Amiens Street & 1169 & 3.08 & 6.16 & 30.80 \\ \hline
+            Constitution Hill & 647 & 5.56 & 18.70 & 55.47 \\ \hline
+            East Wall Road & 1593 & 2.26 & 4.52 & 22.60 \\ \hline
+            High Street & 613 & 5.87 & 11.75 & 58.73 \\ \hline
+            Mount Street Lower & 775 & 4.65 & 9.29 & 46.45 \\ \hline
+            Parnell Square East & 1031 & 3.49 & 6.98 & 34.92 \\ \hline
+            Patrick Street & 737 & 4.88 & 9.77 & 48.85 \\ \hline
+            Pearse Street & 520 & 6.92 & 13.85 & 69.23 \\ \hline
+            Stephen's Green East & 1344 & 2.68 & 5.36 & 26.79 \\ \hline
+            Victoria Quay & 968 & 3.72 & 7.44 & 37.19 \\ \hline
+            Wexford Street & 385 & 9.35 & 18.70 & 93.51 \\ \hline
+        \end{tabular}
+        \caption{Traffic Flow Data in Simulation}
+        \label{table:data_trafficFlow} 
+    \end{center}
+\end{table}

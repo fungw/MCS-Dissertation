@@ -14,14 +14,12 @@ In another paper \citep{Panayappan2007VANET-basedAvailability}, the proposal bro
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{./Images/VORONOI.png}
+    \includegraphics[width=0.35\linewidth]{./Images/VORONOI.png}
     \caption{Voronoi Model}
     \label{figure:voronoi}
 \end{figure}
 
 The paper proposes that a road side unit \ac{RSU} should be placed at the center of each individual sector in the Voronoi diagram. The \ac{RSU} is responsible for handling all the information regarding parking information within its corresponding sector. In other words, each unit is able to respond with the occupancy levels of the parking spaces in their designated sectors. Vehicles approaching a designated sector will be able to communicate with the appropriate \ac{RSU} in order to query the parking space available within that sector. The drawbacks to this implementation would be the cost. Not only must parking sensors be fitted in parking locations, on top of this, a corresponding \ac{RSU} must be placed in each sector.
-
-\pagebreak
 
 \subsection{Vehicular Cloud Computing (VCC)}
 Vehicular Cloud Computing \ac{VCC} can be defined as a new paradigm in which vehicles interact and collaborate to sense the environment, process the data, propagate the results and more generally share resources \citep{Mehmood2017Cyber-PhysicalCommunications}. \ac{VANET} models require \ac{OBU} to process more and more information. As highlighted in this survey \citep{Whaiduzzaman2014AComputing}, vehicles are expected to carry more storage, processing power and sensing capabilities. \ac{VCC} provides a solution to the influx of processing power required for \ac{OBU} of vehicles. Additionally, vehicular sensing capabilities can be further enhanced through the use of the cloud. Often underutilised vehicle sensors could provide real-time environment information.

@@ -7,8 +7,6 @@ The simulation initialisation stage involves setting static variables for the du
 \subsubsection{Assign Parking Area Capacities}
 Parking space capacities are used to calculate the remaining percentage of spaces left in a parking area during the simulation process. This involves both on-street and parking lot occupancy rates. A dedicated global vector is used to store each parking area capacity. In this way, each vehicle entering the simulation will be able to access the variable instead of accessing the parking space capacities file everytime.
 
-\pagebreak
-
 \subsection{Vehicle Initialisation} \label{ssec:vehicle_init}
 Upon initialisation, a vehicle is assigned a function for the duration of the simulation. The initial step is to determine whether or not the vehicle is destined to park. A random variable is introduced to determine whether the vehicle is driving into the city to park, or passing through the city. The latter is to simulate traffic flow within the city. When a vehicle is destined to park, it must determine whether they seek an on-street parking space or to park in a parking lot. This is determined through the use of another random variable.
 
