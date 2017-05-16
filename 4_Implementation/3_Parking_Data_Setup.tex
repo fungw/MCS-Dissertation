@@ -1,19 +1,19 @@
 \section{Simulation Data}
-Various data is needed for the simulation to work. Most of the data is manually acquired through \ac{SUMO} GUI or translated and formatted from datasets acquired online. Section \ref{sec:design_data} details the data that have been acquired from external sources. In this section, a list is compiled of the formatted datasets that the simulation interacts with directly. An explanation of the data as well as their purpose within the simulation is also explained.
+Various data is needed for the simulation to work. Most of the data is manually acquired through \ac{SUMO} \ac{GUI} or translated and formatted from datasets acquired online. Section \ref{sec:design_data} details the data that have been acquired from external sources. In this section, a list is compiled of the formatted datasets that the simulation interacts with directly. An explanation of the data, as well as their purpose within the simulation, is also included.
 
-\textbf{To note:} There are minor differences between \ac{SUMO} coordinates and \ac{OMNeT++} coordinates. More specifically, the origin for the \ac{SUMO} coordinate plane is in the top left corner, while the origin of \ac{OMNeT++} coordinates is on the bottom left corner. In the succeeding sections, there are references to both \ac{OMNeT++} and \ac{SUMO} coordinates. \ac{VEINS} supplies a function that allows for \ac{SUMO} to \ac{OMNeT++} coordinate conversions and it is used often during and before the simulation.
+\textbf{To note:} There are minor differences between \ac{SUMO} coordinates and \ac{OMNeT++} coordinates. More specifically, the origin for the \ac{SUMO} coordinate plane is in the top left corner, while the origin of \ac{OMNeT++} coordinates is on the bottom left corner. In the succeeding sections, there are references to both \ac{OMNeT++} and \ac{SUMO} coordinates. \ac{VEINS} supplies a function that allows for \ac{SUMO} to \ac{OMNeT++} coordinate conversions and it is often used during and before the simulation.
 
 \subsection{Parking Lot}
 \subsubsection{\underline{\ac{OMNeT++} Coordinates}}
 \begin{description}[leftmargin=8em,style=nextline]
   \item[Explanation] \ac{OMNeT++} coordinates of each parking lot. The coordinates are initially obtained through the \ac{SUMO} GUI and converted to \ac{OMNeT++} coordinates with a coordinate conversion function supplied by \ac{VEINS}. This is done separately from the simulation process. The conversion took place pre-implementation and saved to a file for further use.
-  \item[Purpose] \ac{OMNeT++} coordinates of each parking lot is used to calculate the closest parking lot to a vehicles' final destination.
+  \item[Purpose] \ac{OMNeT++} coordinates of each parking lot are used to calculate the closest parking lot to a vehicles' final destination.
 \end{description}
 
 \subsubsection{\underline{\ac{SUMO} Lane IDs}}
 \begin{description}[leftmargin=8em,style=nextline]
   \item[Explanation] \ac{SUMO} lane IDs for each parking lot. The lane IDs are obtained through \ac{SUMO} GUI.
-  \item[Purpose] The parking lot lane ID is where each parking lot is situated in the \ac{SUMO} road network. The lane ID is required in order to route a vehicle road that the parking lot is located on. Additionally, it is the only accepted parameter for the vehicle routing function.
+  \item[Purpose] The parking lot lane ID is where each parking lot is situated in the \ac{SUMO} road network. The lane ID is required to route a vehicle to the road that the parking lot is located. Additionally, it is the only accepted parameter for the vehicle routing function.
 \end{description}
 
 \subsubsection{\underline{Capacity Data}}
@@ -25,7 +25,7 @@ Various data is needed for the simulation to work. Most of the data is manually 
 \subsubsection{\underline{Vacancy Data}}
 \begin{description}[leftmargin=8em,style=nextline]
   \item[Explanation] Dublin parking lot data is obtained as explained in section \ref{data:parking_lot}. The data includes Dublin parking lot vacancies at a particular time.
-  \item[Purpose] Dublin parking lot vacancy data is used to populate the parking lot spaces upon simulation initialisation.
+  \item[Purpose] Dublin parking lot vacancy data is used to populate the parking lot spaces upon simulation initialization.
 \end{description}
 
 
@@ -67,8 +67,8 @@ Various data is needed for the simulation to work. Most of the data is manually 
 
 \subsubsection{\underline{All \ac{SUMO} Lanes and Coordinates}}
 \begin{description}[leftmargin=8em,style=nextline]
-  \item[Explanation] This is a dataset of the \ac{SUMO} lane ID and \ac{SUMO} coordinate of each road within the Dublin road network. In other words, it is a subset of the road network file generated through NETCONVERT mentioned in section \ref{ssec:netconvert}.
-  \item[Purpose] The purpose of this dataset stems from the dataset of destination sectors. Despite the localised randomness of the destination sectors, there was a need for more granular destinations for each vehicle within the destination sectors defined. The \ac{SUMO} coordinates of a particular road is required to calculate the relative distance to the final destination sector and the \ac{SUMO} lane ID is used to assign the vehicle to the location if the destination criteria holds. This is explained in detail in section \ref{ssec:vehicle_init}.
+  \item[Explanation] This is a dataset of the \ac{SUMO} lane ID and the \ac{SUMO} coordinate of each road within the Dublin road network. In other words, it is a subset of the road network file generated through NETCONVERT mentioned in section \ref{ssec:netconvert}.
+  \item[Purpose] The purpose of this dataset stems from the dataset of destination sectors. Despite the localised randomness of the destination sectors, there was a need for more granular destinations for each vehicle within the destination sectors defined. The \ac{SUMO} coordinates of a particular road are required to calculate the relative distance to the final destination sector, and the \ac{SUMO} lane ID is used to assign the vehicle to the location if the destination criteria hold true. This is explained in detail in section \ref{ssec:vehicle_init}.
 \end{description}
 
 \subsubsection{\underline{Exit Lane ID}}

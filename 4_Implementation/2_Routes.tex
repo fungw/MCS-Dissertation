@@ -1,5 +1,7 @@
+\pagebreak
+
 \section{Route Generation}
-\ac{SUMO} is a microscopic simulator as discussed in \ref{ssec:SUMO_SOFTWARE}. Microscopic simulators allow for individual vehicle simulation. \ac{SUMO} supplies tools for trip and route generation for each individual vehicle. A python script for generating random trips is available. The script can also take parameters for specific start locations, the time to insert the vehicle into the simulation at, and the final destination of the routes. 
+\ac{SUMO} is a microscopic simulator as discussed in \ref{ssec:SUMO_SOFTWARE}. Microscopic simulators allow for individual vehicle simulation. \ac{SUMO} supplies tools for trip and route generation for each vehicle. A python script for generating random trips is available. The script can also take parameters for specific start locations, the time to insert the vehicle into the simulation at, and the final destination of the routes. 
 
 \subsection{Trips}\label{ssec:trips}
 Trips are defined as the start and end location of a vehicle. The random trips script is used to generate vehicles' random destinations. The script is a tool supplied by \ac{SUMO}. Shown below is an example command of the creation of trips starting from Amiens Street.
@@ -8,19 +10,19 @@ Trips are defined as the start and end location of a vehicle. The random trips s
     python /sumo/tools/randomTrips.py --trip-attributes=``departLane=``-4925959" -n net.net.xml -b 0 -e 3600 -p 3.07955518 -o ./amiensSt.xml
 \end{displayquote}
 
-The depart lane attribute is the SUMO road identifier for Amiens Street. The .net.xml file is the road network file of Dublin. -b and -e indicate the start and end time of the simulation, this is generally used if using \ac{SUMO} as the standalone simulator. However in this case, VEINS itself redefines the simulation time when the VEINS simulation starts.
+The depart lane attribute is the SUMO road identifier for Amiens Street. The .net.xml file is the road network file of Dublin. -b and -e indicate the start and end time of the simulation; this is used if using \ac{SUMO} as the standalone simulator. However, in this case, VEINS itself redefines the simulation time when the VEINS simulation starts.
 
--p is the period in which vehicles are inserted into the simulation. The value for -p is calculated as follows. From that traffic flow data acquired from DCC, given that there are 1169 vehicles that head inbound via Amiens Street in one particular hour. By dividing an hour of simulation time, 3600, by the amount of vehicles inbound, the period interval of when a car should be inserted into the simulation can be calculated. In this case, 3600/1169 would equate to inserting a vehicle every 3.07955518 simulation time.
+-p is the period in which vehicles are inserted into the simulation. The value for -p is calculated as follows. From the traffic flow data acquired from \ac{DCC}, given that 1,169 vehicles head inbound via Amiens Street in one particular hour. By dividing an hour of simulation time, 3600, by a number of vehicles inbound, the period interval of when a car should be inserted into the simulation can be calculated. In this case, 3600/1169 would equate to inserting a vehicle every 3.07955518 simulation time.
 
 For each route mentioned in section \ref{ssec:traffic_flows}, random trips are created. Each route is outputted into a .xml file for further use in route generation.
 
 \subsection{Routes}
-Routes are generated with DUAROUTER, a \ac{SUMO} tool that uses Dijkstra's Shortest Path Algorithm by default to compute the shortest route from the start and end location of a vehicle. Listed below is the command for route generation, with the trip files generated in section \ref{ssec:trips}.
+Routes are generated with DUAROUTER, a \ac{SUMO} tool that uses Dijkstra's Shortest Path Algorithm by default to compute the shortest route from the start and end location of a vehicle \citep{2017DUAROUTER}. Listed below is the command for route generation, with the trip files generated in section \ref{ssec:trips}.
 
 \begin{displayquote}
     duarouter -n net.net.xml --ignore-errors true --trip-files ``./amiensSt.xml, ./constitutionHill.xml, ..." -o routes.rou.xml
 \end{displayquote}
 
-The road network file is included via the ``-n" parameter. Errors occur when DUAROUTER is unable to find a path for a single trip within a trip file. This is suppressed by the ``ignore-errors" parameter. The trip files are are included after the ``trip-files" attribute and an output file is referenced.
+The road network file is included via the ``-n" parameter. Errors occur when DUAROUTER is unable to find a path for a single trip within a trip file. This is suppressed by the ``ignore-errors" parameter. The trip files are included after the ``trip-files" attribute, and an output file is referenced.
 
-The result is a \ac{SUMO} readable route file that details each individual vehicles' routes.
+The result is a \ac{SUMO} readable route file that details each vehicles' routes.

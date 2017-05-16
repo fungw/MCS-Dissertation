@@ -1,14 +1,15 @@
+
 \subsection{Dublin City Parking Information}
-There are various parking data required for the simulation. The list below outlines the data and the reason why they are required. The succeeding section explains the process in obtaining the data.
+The list below is a general overview and reason to why they are required. The following sections explain the process of obtaining each set of parking data, on-street and off-street.
 
 \begin{itemize}
-    \item Parking Area Geographic Coordinates: In order to simulate vehicles parking in areas that allow parking, all Dublin on-street parking locations as well as parking lot locations must be known. The coordinate locations are recorded so that vehicles may be able to calculate which parking areas are closest to their final destination during the simulation.
-    \item Parking Area Capacities: The parking space capacity of each parking lot and on-street location is recorded. The capacities are used to determine how full a parking area is throughout the simulation process.
-    \item Parking Area SUMO Road ID: The SUMO road identifiers must be recorded for each parking area so that the vehicles may be routed to them. SUMO road identifiers is the only accepted parameter for the function for routing vehicles dynamically within the simulation.
+    \item Parking Area Geographic Coordinates: To simulate vehicles parking in areas that allow parking, all Dublin on-street parking locations, as well as parking lot locations, must be known. The coordinate locations are recorded so that vehicles may be able to calculate which parking areas are closest to their final destination during the simulation.
+    \item Parking Area Capacities: The parking space capacity of each parking lot and the on-street location is recorded. The capacities are used to determine how full a parking area is throughout the simulation process.
+    \item Parking Area SUMO Road ID: The SUMO road identifiers must be recorded for each parking area so that the vehicles may be routed to them. SUMO road identifiers are the only accepted parameter for the function for routeing vehicles dynamically within the simulation.
 \end{itemize}
 
 \subsubsection{On-Street Parking Information}\label{ssec:on-street_parking_info}
-data.gov.ie offers various datasets for transport data in Ireland. The most granular transport dataset regarding on-street parking locations is the parking meters dataset \{CITE\}. It does not contain the precise locations of each individual parking spot, but it has the locations of every parking meter within Dublin city. More specifically, the dataset includes Irish grid reference coordinates of all parking meters as well as the number of on-street parking spaces that they serve. Thus this dataset is sufficient for the purpose of this simulation. The dataset is also substantial as it references all known parking meters in Dublin. The area of interest for this dissertation is inner city Dublin parking areas. This can be visualised as the ``yellow" and ``red" areas in terms of \ac{DCC} defined parking zones as shown in figure \ref{fig:DUBLINZONES} \citep{2017DublinTariffs}. 
+data.gov.ie offers various datasets for transport data in Ireland \citep{2017Data.gov.iePortal}. The most granular transport dataset regarding on-street parking locations is the parking meters dataset \citep{2017ParkingDataset}. It does not contain the precise locations of each parking spot, but it has the locations of every parking meter within Dublin city. More specifically, the dataset includes Irish grid reference coordinates of all parking meters as well as the number of on-street parking spaces that they serve. Thus this dataset is sufficient for the purpose of this simulation. The dataset is also substantial as it references all known parking meters in Dublin. The area of interest for this dissertation is inner city Dublin parking areas. This can be visualised as the ``yellow" and ``red" areas in terms of \ac{DCC} defined parking zones as shown in figure \ref{fig:DUBLINZONES} \citep{2017DublinTariffs}. 
 
 The resultant dataset within the concerned zones includes 175 on-street parking meters that serve 12,289 parking spaces. Each parking meter coordinate is formatted to an Irish coordinate reference plane. For the data to be usable in this dissertation, they must be converted to the more commonly used geographic coordinate system. Online tools are available to complete this conversion process.
 
@@ -23,7 +24,7 @@ The SUMO road identifiers are obtained through a manual mapping process of each 
 
 \pagebreak 
 
-\subsubsection{Car Park Information}\label{ssec:car_par_cap}
+\subsubsection{Off-Street Parking Information}\label{ssec:car_par_cap}
 There are 14 parking lots that this dissertation takes into account. Table \ref{table:carpark} includes the 14 parking lots and their capacities.
 
 \begin{table}[H]
@@ -64,7 +65,7 @@ There are 14 parking lots that this dissertation takes into account. Table \ref{
     \end{center}
 \end{table}
 
-Most of the car parks in Dublin are operated by QPark. Information regarding their capacities are available on each of the corresponding QPark parking lot websites. Other car parks are operated by the shopping centres that they they serve and the capacities of them are listed on the corresponding shopping centre websites.
+Most of the car parks in Dublin are operated by QPark. Information regarding their capacities are available on each of the corresponding QPark parking lot websites. Other car parks are operated by the shopping centres that they serve and the capacities of them are listed on the corresponding shopping centre websites.
 
 The coordinates of each of the car park locations are recorded through Google Maps.
 

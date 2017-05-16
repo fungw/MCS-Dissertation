@@ -1,17 +1,17 @@
 \section{Future Works}
-The primary considerations for future works regarding this dissertation is to undergo more simulation efforts. There are two main areas where  additional work should be put into.
+The primary considerations for future works regarding this dissertation are to undergo more simulation efforts. There are three main areas where additional work should be put into, these are explained in the sections below.
 
 \subsubsection*{Evaluation on Different Dates}
-Identical parking and traffic data is used for all three simulations in this dissertation. For future works, evaluation should be done on different dates to avoid unbiased results. This consideration of unbiased results was already acknowledged as parking and traffic data was acquired externally. The traffic and parking datasets acquired externally span the course of one year, from January 2016 to December 2016.
+Identical parking and traffic data are used for all three simulations in this dissertation. For future works, evaluation should be done on different dates to avoid biased results. This consideration of unbiased results was already acknowledged as parking and traffic data was acquired externally. The traffic and parking datasets acquired externally span the course of one year, from January 2016 to December 2016.
 
 An initial plan was to simulate more than one date. However, there was a naive expectation that the simulations would run within a week.
 
 \subsubsection*{Evaluation Averaging}
-I realise that I have designed the simulation in a non-deterministic manner. The inputs to the simulation are constant, however, vehicles decide their final destinations in a non-deterministic way. For this reason, the evaluation comparison between one specific \ac{VANET} model with a baseline model is not entirely accurate.
+I realise that I have designed the simulation in a non-deterministic manner. The inputs to the simulation are constant. However, vehicles decide their final destinations in a non-deterministic way. For this reason, the evaluation comparison between one specific \ac{VANET} model with a baseline model is not entirely accurate.
 
-In future works, along with additional evaluations on different dates as outlined above. An aggregation of each \ac{VANET} simulation scenario can be averaged and compared against an average of all the baseline simulation scenarios.
+In future works, along with additional evaluations on different dates as outlined above. An aggregation of each \ac{VANET} simulation scenario can be averaged and compared to an average of all the baseline simulation scenarios.
 
 \subsubsection*{Simulation Optimisation}
 The computational power required to run the simulations is very high. To define a region of interest to simulate is regarded as one of the top solutions in easing the computations required for a simulation to run. However, given that this dissertation is based on Dublin Inner City, it is not possible to make the simulation region of interest any more granular.
 
-Upon initialisation, my design of implementation involves inserting vehicles from specific roads. In future works, instead of inserting vehicles solely from the roads, the insertion of vehicles should also be inserted from parking areas to simulate vehicles leaving the city. This adds more vehicles to the simulation, thus suppressing the amount of vehicles entering from the roads must be tweaked.
+In my design of the \ac{VANET} model, the vehicles are inserted into the simulation solely from roads. A future alteration could be to insert vehicles from parking areas too. In the current implementation, it takes an extended period to simulate the first vehicle to leave a parking spot. This is due to vehicles only being inserted from the roads. This could be avoided; the simulation could start when a vehicle leaves a parking spot by inserting vehicles from parking areas from the beginning. In this way, the initial process of waiting for vehicles to fill the city can be avoided.

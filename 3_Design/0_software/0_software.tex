@@ -2,24 +2,24 @@
 In this section, the software considerations are discussed. An outline on each software is introduced, along with the reasoning behind why the implementation was settled on VEINS, SUMO and OMNeT++.
 
 \subsection{SUMO}\label{ssec:SUMO_SOFTWARE}
-SUMO is a microscopic traffic simulator \citep{SUMO2012}. A microscopic traffic simulator allows vehicles to be modelled and simulated individually. There are other types of traffic simulators; macroscopic and mesoscopic modelling. In this section, a brief description of the different types of traffic simulators are outlined. This is followed by figure \ref{table:software}, illustrating the differences between current traffic simulators.
+SUMO is a microscopic traffic simulator \citep{SUMO2012}. A microscopic traffic simulator allows vehicles to be modelled and simulated individually. There are other types of traffic simulators; macroscopic and mesoscopic modelling. In this section, a brief description of the different types of traffic simulators is outlined. This is followed by figure \ref{table:software}, illustrating the differences between current traffic simulators.
 
 \subsubsection{\underline{Traffic Simulators}}
 \paragraph{Microscopic Traffic Simulators}
 Microscopic traffic simulators allow granular ground-based level modelling. This includes the simulation of individual pedestrians. Furthermore, microscopic simulators simulate each entity individually. In contrast to this, macroscopic traffic simulators focus on general traffic flows. 
 
 \paragraph{Macroscopic Traffic Simulators}
-Macroscopic traffic simulators focus on traffic planning analysis workflows. Applications for macroscopic simulators include public transport modelling and construction works traffic planning. It may be useful to simulate public transport for various reasons. Some of the features included in macroscopic public transport simulations are optimisations to bus routes to minimise transfer times and fleet sizes. Public transport modelling may also be useful in order to estimate the costs and revenue generated from each transport route. With construction planning traffic analysis, traffic bottlenecks may be simulated and it may be possible to quantify detour traffic.
+Macroscopic traffic simulators focus on traffic planning analysis workflows. Applications for macroscopic simulators include public transport modelling and construction works traffic planning. It may be useful to simulate public transport for various reasons. Some of the features included in macroscopic public transport simulations are optimisations to bus routes to minimise transfer times and fleet sizes. Public transport modelling may also be useful to estimate the costs and revenue generated from each transport route. With construction planning traffic analysis, traffic bottlenecks may be simulated, and it may be possible to quantify detour traffic.
 
 \paragraph{Mesoscopic Traffic Simulators}
-Mesoscopic traffic simulators are useful for simulating traffic in small groups. It may be seen as a grouped microscopic simulation. Applications where mesoscopic traffic simulations are necessary is for the simulation of vehicle platooning.
+Mesoscopic traffic simulators are useful for simulating traffic in small groups. It may be seen as a grouping of microscopic simulation. Applications, where mesoscopic traffic simulations are necessary, is for the simulation of vehicle platooning.
 
 \subsubsection{\underline{Traffic Simulator Comparison}}
-In figure \ref{table:software} various traffic simulation packages are outlined. Columns are aspects that were considered when choosing an appropriate traffic simulator for this dissertation. The list below is compiled for definitions for non-obvious columns for figure \ref{table:software}.
+In figure \ref{table:software} various traffic simulation packages are outlined. The columns of the table are aspects that were considered when choosing an appropriate traffic simulator for this dissertation. The list below is compiled for definitions for non-obvious columns for figure \ref{table:software}.
 \begin{itemize}
-    \item Simulation Model identifies the type of traffic simulator (microscopic / mesoscopic / macroscopic).
+    \item Simulation Model identifies the type of traffic simulator (microscopic/mesoscopic/macroscopic).
     \item Multi-Modal is the ability to simulate more than one type of traffic.
-    \item \ac{OSM} map conversion.
+    \item The possibility of \ac{OSM} map conversion to simulation readable road network.
 \end{itemize}
 
 \begin{table}[H]
@@ -42,12 +42,15 @@ In figure \ref{table:software} various traffic simulation packages are outlined.
     \label{table:software}
 \end{table}
 
-\ac{SUMO} is chosen traffic simulation for this dissertation. It provides tools for \ac{OSM} road network conversion, tools for trip generations, route generations and is widely supported by an active community on their forum. 
+\ac{SUMO} is the chosen traffic simulation for this dissertation. It provides tools for \ac{OSM} road network conversion, tools for trip generations, route generations and is widely supported by an active community on their forum \citep{2017MailingSUMO}.
 
 %% NEXT SECTION
 
 \subsection{OMNeT++} \label{ssec:OMNETT}
-OMNeT++ is a modular, C++ network simulation and framework \citep{Varga2008ANENVIRONMENT}. OMNeT++ includes an INET framework that allows for simulation of different network protocols. The network protocol of concern are Mobile Ad-Hoc Networks (MANETs). VANET is a type of MANET, and is used for vehicular communications. The ability for inter-vehicular communications is vital for this dissertation.
+OMNeT++ is a modular, C++ network simulation and framework \citep{Varga2008ANENVIRONMENT}. OMNeT++ includes an INET framework that allows for simulation of different network protocols. The network protocol of concern is Mobile Ad-Hoc Networks (MANETs). VANET is a type of MANET and is used for vehicular communications. The ability for inter-vehicular communications is vital for this dissertation.
 
 \subsection{VEINS}
-Vehicles in Network Simulation (VEINS) is a simulation framework that tries to make the simulation of vehicle communications as realistic as possible. VEINS is set up to interact with both OMNeT++ and SUMO. As mentioned in section \ref{ssec:SUMO_SOFTWARE}, SUMO simulates the traffic aspect of this dissertation. OMNeT++ as mentioned in section \ref{ssec:OMNETT} is a network simulator that handles the  A physical layer modelling toolkit MiXiM is used to further enhance the simulation. MiXiM provides models that can accurately describe radio interference and the shadowing of static and moving obstacles within the simulation. VEINS also sets up a running server for inter-communications between OMNeT++ and SUMO to provide additional realism of vehicular networking.
+Vehicles in Network Simulation (VEINS) is a simulation framework that tries to make the simulation of vehicular communications as realistic as possible. VEINS is set up to interact with both OMNeT++ and SUMO. As mentioned in section \ref{ssec:SUMO_SOFTWARE}, SUMO simulates the traffic aspect of this dissertation. OMNeT++ as mentioned in section \ref{ssec:OMNETT} is a network simulator that handles vehicular packet transmissions. A physical layer modelling toolkit MiXiM is used to enhance the simulation further. MiXiM provides models that can accurately describe radio interference and the shadowing of static and moving obstacles within the simulation. VEINS also sets up a running server for inter-communications between OMNeT++ and SUMO to provide additional realism of vehicular networking.
+
+\subsection{Conclusion}
+Another reason that \ac{SUMO} is chosen as the traffic simulator, is that it allows the use of \ac{VEINS}. \ac{VEINS} can be seen as a framework that is capable of simulating \ac{VANET}. For this reason, VEINS, SUMO and OMNeT++ are chosen for this dissertation.
